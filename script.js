@@ -32,13 +32,11 @@ function chooseRandomSize() {
 }
 
 function chooseRandomRotation() {
-  const whichRotation = Math.floor(Math.random() * 2);
-  console.log(whichRotation);
+  const whichRotation = Math.floor(Math.random() * 2);  
   let chosenRotation;
   for (let rotation = 0; rotation < rotations.length; rotation += 1) {
     chosenRotation = rotations[whichRotation];
-  }
-  console.log(chosenRotation);
+  }  
   return chosenRotation;
 }
 
@@ -56,16 +54,16 @@ const letter = document.getElementById('carta-gerada');
 const generateBtn = document.getElementById('criar-carta');
 const counter = document.getElementById('carta-contador');
 
+
 function generateLetter() {
-  const classes = `${chooseRandomStyle()} ${chooseRandomSize()} ${chooseRandomRotation()} ${chooseRandomInclination()}`;
-
+  letter.innerHTML = ' ';
   const words = input.value.split(' ');
-  counter.innerText = words.length;
-
-  console.log(letter);
-  for (let word = 0; word < words.length; word += 1) {  
-    let span = document.createElement('span');
-    span.className = classes;
+  counter.innerText = words.length;  
+  for (let word = 0; word < words.length; word += 1) {
+    const classes = `${chooseRandomStyle()} ${chooseRandomSize()}
+     ${chooseRandomRotation()} ${chooseRandomInclination()}`;
+    const span = document.createElement('span');
+    span.className = classes;    
     letter.appendChild(span);
     letter.lastElementChild.innerText = words[word];
     console.log(classes);

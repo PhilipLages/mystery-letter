@@ -50,3 +50,10 @@
   transform: matrix(1, 0, -0.176327, 1, 0, 0);
 }
 
+.contador {
+  display: inline-block;
+}
+
+#carta-texto {
+  width: 400px;
+}
