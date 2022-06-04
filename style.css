@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
 .newspaper {
   background-color: rgb(250, 235, 215);
   font-family: 'Times New Roman', Times, serif;
@@ -50,14 +52,46 @@
   transform: matrix(1, 0, -0.176327, 1, 0, 0);
 }
 
-.contador {
-  display: inline-block;
-}
-
-#carta-texto {
-  width: 400px;
-}
 
 #all-container {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  max-width: 800px;
+  background-color: lightgray;
+  border-radius: 20px;
+}
+
+
+header {
+  font-size: 30px;
+  font-family: 'MedievalSharp', cursive;
+  background-color: lightslategray;
+  color: darkblue;
+  border-radius: 20px;
+}
+
+.contador {
+  font-family: 'MedievalSharp', cursive;
+  margin-top: 20px;
+  display: inline-block;
+  padding: 5px;
+  background-color: white;
+  color: darkblue;
+  border-radius: 10px;
+  font-weight: bolder;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+#carta-gerada {
+  margin-top: 50px;
+}
+
+#criar-carta {
+  margin-bottom: 20px;
 }
