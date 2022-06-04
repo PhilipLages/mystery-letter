@@ -60,8 +60,7 @@ function generateLetter() {
   const words = input.value.split(' ');
   counter.innerText = words.length;  
   for (let word = 0; word < words.length; word += 1) {
-    const classes = `${chooseRandomStyle()} ${chooseRandomSize()}
-     ${chooseRandomRotation()} ${chooseRandomInclination()}`;
+    const classes = `${chooseRandomStyle()} ${chooseRandomSize()} ${chooseRandomRotation()} ${chooseRandomInclination()}`;
     const span = document.createElement('span');
     span.className = classes;    
     letter.appendChild(span);
