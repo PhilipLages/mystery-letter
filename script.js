@@ -1,9 +1,3 @@
-function createNewTag(tag, element, value) {         
-  const createTag = document.createElement(tag);        
-  createTag.setAttribute(element, value);    
-  return createTag;
-}
-
 const styles = ['newspaper', 'magazine1', 'magazine2'];
 
 const sizes = ['medium', 'big', 'reallybig'];
@@ -11,7 +5,6 @@ const sizes = ['medium', 'big', 'reallybig'];
 const rotations = ['rotateleft', 'rotateright'];
 
 const inclinations = ['skewleft', 'skewright'];
-
 
 function chooseRandomStyle() {
   const whichStyle = Math.floor(Math.random() * 3);
@@ -32,11 +25,11 @@ function chooseRandomSize() {
 }
 
 function chooseRandomRotation() {
-  const whichRotation = Math.floor(Math.random() * 2);  
+  const whichRotation = Math.floor(Math.random() * 2);
   let chosenRotation;
   for (let rotation = 0; rotation < rotations.length; rotation += 1) {
     chosenRotation = rotations[whichRotation];
-  }  
+  }
   return chosenRotation;
 }
 
@@ -50,7 +43,7 @@ function chooseRandomInclination() {
 }
 
 function generateClasses() {
-  const classes = `${chooseRandomStyle()} ${chooseRandomSize()} ${chooseRandomRotation()} ${chooseRandomInclination()}`;return classes;
+  const classes = `${chooseRandomStyle()} ${chooseRandomSize()} ${chooseRandomRotation()} ${chooseRandomInclination()}`; return classes;
 }
 
 const input = document.getElementById('carta-texto');
@@ -58,6 +51,10 @@ const letter = document.getElementById('carta-gerada');
 const generateBtn = document.getElementById('criar-carta');
 const counter = document.getElementById('carta-contador');
 
+function changeLetterStyles(e) {
+  e.target.className = ' ';
+  e.target.className = generateClasses();
+}
 
 function generateLetter() {
   letter.innerHTML = ' ';
@@ -65,22 +62,18 @@ function generateLetter() {
     letter.innerText = 'Por favor, digite o conteúdo da carta.';
   } else {
     const words = input.value.split(' ');
-    counter.innerText = words.length;  
-    for (let word = 0; word < words.length; word += 1) {    
+    counter.innerText = words.length;
+    for (let word = 0; word < words.length; word += 1) {
       const span = document.createElement('span');
-      span.className = generateClasses();  
+      span.className = generateClasses();
+      span.addEventListener('click', changeLetterStyles);
       letter.appendChild(span);
-      letter.lastElementChild.innerText = words[word];    
+      letter.lastElementChild.innerText = words[word];
     }
   }
 }
 
 function addBtnEvents() {
-  generateBtn.addEventListener('click', generateLetter);  
+  generateBtn.addEventListener('click', generateLetter);
 }
 addBtnEvents();
-
-
-
-
-
